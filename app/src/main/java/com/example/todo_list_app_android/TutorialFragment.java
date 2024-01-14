@@ -13,6 +13,8 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.todo_list_app_android.databinding.TutorialFragmentBinding;
 
+import java.util.Random;
+
 public class TutorialFragment extends Fragment {
 
     private TutorialFragmentBinding binding;
@@ -22,6 +24,7 @@ public class TutorialFragment extends Fragment {
 
     /** Tracks the current count */
     private int count;
+
 
     @Override
     public View onCreateView(
@@ -42,6 +45,8 @@ public class TutorialFragment extends Fragment {
         binding.toTodoList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 NavHostFragment.findNavController(TutorialFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
@@ -55,11 +60,19 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-        binding.countButton.setOnClickListener(new View.OnClickListener(){
+        binding.countButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 updateCount();
+            }
+        });
+
+        binding.randomButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                showRandomNumberToast();
             }
         });
     }
@@ -86,5 +99,16 @@ public class TutorialFragment extends Fragment {
     private void updateCount() {
         count++;
         counterDisplay.setText(Integer.valueOf(count).toString());
+    }
+
+    /**
+     * Displays a random number in the toast.
+     */
+    private void showRandomNumberToast() {
+        Random rand = new Random();
+        int randomNumber = rand.nextInt(100);
+        String randomNumberString = Integer.valueOf(randomNumber).toString();
+
+        showToast(randomNumberString);
     }
 }
