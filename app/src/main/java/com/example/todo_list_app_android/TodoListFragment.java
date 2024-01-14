@@ -34,13 +34,16 @@ public class TodoListFragment extends Fragment {
     private List<Task> tasks;
 
     /** A binding for tasks array list */
-    private TasklistRecyclerAdapater tasklistRecyclerAdapater;
+    private TaskListRecyclerAdapater tasklistRecyclerAdapater;
 
     /** The binding for the button to add tasks to the list */
     private Button addTaskButton;
 
     /** The binding for the area where task is inputted */
     private EditText newTaskInput;
+
+    /** The checkbox used for items in the task list */
+    private Button checkTaskButton;
 
     @Override
     public View onCreateView(
@@ -62,12 +65,13 @@ public class TodoListFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.task_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        tasklistRecyclerAdapater = new TasklistRecyclerAdapater(tasks, getContext());
+        tasklistRecyclerAdapater = new TaskListRecyclerAdapater(tasks, getContext());
 
         recyclerView.setAdapter(tasklistRecyclerAdapater);
 
         addTaskButton = view.findViewById(R.id.add_task_button);
         newTaskInput = view.findViewById(R.id.new_task_input);
+        checkTaskButton = view.findViewById(R.id.added_task);
 
         // Button to navigate to next page.
         binding.nextButton.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +107,14 @@ public class TodoListFragment extends Fragment {
             tasklistRecyclerAdapater.notifyDataSetChanged();
         }
     }
+
+    /**
+     * Removes a task from the task list
+     * and notifies the task list recycler.
+     *
+     * @param index The text of the item in the list to remove.
+     */
+
 
     /**
      * Displays a toast with the specified message.

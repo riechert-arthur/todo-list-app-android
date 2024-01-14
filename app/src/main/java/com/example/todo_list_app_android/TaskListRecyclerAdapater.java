@@ -2,16 +2,17 @@ package com.example.todo_list_app_android;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import androidx.annotation.NonNull;
-public class TasklistRecyclerAdapater extends RecyclerView.Adapter<TaskListViewHolder> {
+public class TaskListRecyclerAdapater extends RecyclerView.Adapter<TaskListViewHolder> {
     private List<Task> taskList;
     private Context context;
 
-    public TasklistRecyclerAdapater(List<Task> taskList, Context context) {
+    public TaskListRecyclerAdapater(List<Task> taskList, Context context) {
         this.taskList = taskList;
         this.context = context;
     }
@@ -26,7 +27,15 @@ public class TasklistRecyclerAdapater extends RecyclerView.Adapter<TaskListViewH
 
     @Override
     public void onBindViewHolder(@NonNull TaskListViewHolder holder, int position) {
-        holder.taskName.setText(taskList.get(position).getName());
+        holder.task.setText(taskList.get(position).getName());
+        holder.task.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                taskList.remove(holder.getAdapterPosition());
+                notifyItemRemoved(holder.getAdapterPosition());
+            }
+        });
     }
 
     @Override
