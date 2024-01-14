@@ -8,13 +8,18 @@
     <string name="next">To Tutorial App</string>
     <string name="previous">Previous</string>
 
-    <string name="app_description">
-        This is my first Android App! Woah, dude!
-    </string>
-
     <!-- Strings used for the todo_list fragments -->
     <string name="new_task_placeholder">Do your laundry...</string>
     <string name="add_task_button_text">Add Task</string>
     <string name="task_list_header">Checklist</string>
     <string name="starting_count">1</string>
+    <string name="new_task_error_message">Can\'t add an empty task, Lazy!</string>
+    <string name="new_task_confirmation_message">Added new message.</string>
+
+    <!-- String used for the tutorial fragment -->
+    <string name="tutorial_toast_string">A Toast to the Tutorial!</string>
+    <string name="toast_button_label">Toast</string>
+    <string name="count_button_label">Count</string>
+    <string name="random_button_label">Random</string>
+    <string name="to_todo_list_button_label">To Todo List</string>
 </resources>
