@@ -15,4 +15,5 @@
     <!-- Strings used for the todo_list fragments -->
     <string name="new_task_placeholder">Do your laundry...</string>
     <string name="add_task_button_text">Add Task</string>
+    <string name="task_list_header">Checklist</string>
 </resources>
