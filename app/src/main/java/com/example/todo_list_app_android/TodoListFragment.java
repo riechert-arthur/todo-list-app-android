@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -35,6 +36,30 @@ public class TodoListFragment extends Fragment {
                 NavHostFragment.findNavController(TodoListFragment.this)
                         .navigate(R.id.action_TodoList_to_SecondFragment);
             }
+        });
+
+        binding.addTaskButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                Toast addTaskToast = Toast.makeText(
+                        getActivity(),
+                        "Added new task!",
+                        Toast.LENGTH_SHORT
+                );
+
+                String inputtedText = binding.newTask.getText().toString();
+                int inputtedTextLength = inputtedText.length();
+
+                if (inputtedTextLength <= 0) {
+                    addTaskToast.setText("You can't add an empty task, lazy!");
+                }
+
+
+                addTaskToast.show();
+            }
+
         });
     }
 
