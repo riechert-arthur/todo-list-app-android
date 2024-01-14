@@ -33,6 +33,9 @@ public class TodoListFragment extends Fragment {
     /** A list to hold various tasks the user adds */
     private List<Task> tasks;
 
+    /** A binding for the recycle view */
+    private RecyclerView recyclerView;
+
     /** A binding for tasks array list */
     private TaskListRecyclerAdapater tasklistRecyclerAdapater;
 
@@ -45,6 +48,9 @@ public class TodoListFragment extends Fragment {
     /** The checkbox used for items in the task list */
     private Button checkTaskButton;
 
+    /** The minimum length of a new task */
+    private final int MINIMUM_TASK_LENGTH = 0;
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -52,26 +58,26 @@ public class TodoListFragment extends Fragment {
     ) {
 
         binding = TodoListFragmentBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+        View view = binding.getRoot();
 
-    }
-
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        recyclerView = view.findViewById(R.id.task_list);
+        addTaskButton = view.findViewById(R.id.add_task_button);
+        newTaskInput = view.findViewById(R.id.new_task_input);
+        checkTaskButton = view.findViewById(R.id.added_task);
 
         tasks = new ArrayList<>();
         tasks.add(new Task("Wake up"));
 
-        RecyclerView recyclerView = view.findViewById(R.id.task_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         tasklistRecyclerAdapater = new TaskListRecyclerAdapater(tasks, getContext());
-
         recyclerView.setAdapter(tasklistRecyclerAdapater);
 
-        addTaskButton = view.findViewById(R.id.add_task_button);
-        newTaskInput = view.findViewById(R.id.new_task_input);
-        checkTaskButton = view.findViewById(R.id.added_task);
+        return view;
+    }
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         // Button to navigate to next page.
         binding.nextButton.setOnClickListener(new View.OnClickListener() {
@@ -99,12 +105,13 @@ public class TodoListFragment extends Fragment {
         String inputtedText = newTaskInput.getText().toString();
         int inputtedTextLength = inputtedText.length();
 
-        if (inputtedTextLength <= 0) {
-            showToast("Can't add an empty task, Lazy!");
+        if (inputtedTextLength <= MINIMUM_TASK_LENGTH) {
+            showToast(getString(R.string.new_task_error_message));
         }
-        else if (inputtedTextLength > 0) {
+        else {
             tasks.add(new Task(inputtedText));
             tasklistRecyclerAdapater.notifyDataSetChanged();
+            showToast(getString(R.string.new_task_confirmation_message));
         }
     }
 
