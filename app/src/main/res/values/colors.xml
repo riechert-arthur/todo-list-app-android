@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colors for the tutorial -->
+    <color name="tutorialButtonBackground">#BBDEFB</color>
+    <color name="tutorialScreenBackground">#B85A2E</color>
 </resources>

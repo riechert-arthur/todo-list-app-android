@@ -78,7 +78,7 @@ public class TodoListFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(TodoListFragment.this)
-                        .navigate(R.id.action_TodoList_to_SecondFragment);
+                        .navigate(R.id.action_TodoList_to_TutorialFragment);
             }
         });
 
@@ -107,14 +107,6 @@ public class TodoListFragment extends Fragment {
             tasklistRecyclerAdapater.notifyDataSetChanged();
         }
     }
-
-    /**
-     * Removes a task from the task list
-     * and notifies the task list recycler.
-     *
-     * @param index The text of the item in the list to remove.
-     */
-
 
     /**
      * Displays a toast with the specified message.

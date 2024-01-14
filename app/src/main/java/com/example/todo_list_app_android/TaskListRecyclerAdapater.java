@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import androidx.annotation.NonNull;
 public class TaskListRecyclerAdapater extends RecyclerView.Adapter<TaskListViewHolder> {
+
     private List<Task> taskList;
     private Context context;
 
@@ -30,6 +31,7 @@ public class TaskListRecyclerAdapater extends RecyclerView.Adapter<TaskListViewH
         holder.task.setText(taskList.get(position).getName());
         holder.task.setOnClickListener(new View.OnClickListener() {
 
+            // Remove the item from the list when clicked.
             @Override
             public void onClick(View view) {
                 taskList.remove(holder.getAdapterPosition());

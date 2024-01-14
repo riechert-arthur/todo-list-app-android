@@ -12,14 +12,14 @@
         tools:layout="@layout/todo_list_fragment">
 
         <action
-            android:id="@+id/action_TodoList_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_TodoList_to_TutorialFragment"
+            app:destination="@id/TutorialFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.todo_list_app_android.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/TutorialFragment"
+        android:name="com.example.todo_list_app_android.TutorialFragment"
+        android:label="@string/tutorial_fragment_label"
+        tools:layout="@layout/tutorial_fragment">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"

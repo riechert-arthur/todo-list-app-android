@@ -4,8 +4,8 @@
 
     <!-- Strings used for fragments for navigation -->
     <string name="todo_list_fragment_label">Artie\'s TODO List</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
+    <string name="tutorial_fragment_label">Tutorial Fragment</string>
+    <string name="next">To Tutorial App</string>
     <string name="previous">Previous</string>
 
     <string name="app_description">
@@ -16,4 +16,5 @@
     <string name="new_task_placeholder">Do your laundry...</string>
     <string name="add_task_button_text">Add Task</string>
     <string name="task_list_header">Checklist</string>
+    <string name="starting_count">1</string>
 </resources>
