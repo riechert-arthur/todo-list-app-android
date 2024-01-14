@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">todo-list-app-android</string>
     <string name="action_settings">Settings</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="todo_list_fragment_label">Artie\'s TODO List</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -10,4 +11,8 @@
     <string name="app_description">
         This is my first Android App! Woah, dude!
     </string>
+
+    <!-- Strings used for the todo_list fragments -->
+    <string name="new_task_placeholder">Do your laundry...</string>
+    <string name="add_task_button_text">Add Task</string>
 </resources>
